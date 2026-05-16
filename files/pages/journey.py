@@ -136,7 +136,7 @@ with st.sidebar:
     st.markdown("### Navigation")
     st.page_link("hpexplorer.py", label="Back to Harry Potter Explorer", icon="⚡")
 
-journey_path = os.path.join(os.path.dirname(__file__), "..", "..", "my-rag-journey.md")
+journey_path = os.path.join(os.path.dirname(__file__), "..", "my-rag-journey.md")
 
 if os.path.exists(journey_path):
     with open(journey_path, "r") as f:

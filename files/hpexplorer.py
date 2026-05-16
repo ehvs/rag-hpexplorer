@@ -8,7 +8,7 @@ import tempfile
 import warnings
 import streamlit as st
 from langchain_groq import ChatGroq
-from langchain_huggingface import HuggingFaceEndpointEmbeddings
+from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
 from langchain_community.document_loaders import PDFPlumberLoader
 from langchain_experimental.text_splitter import SemanticChunker
 from langchain_community.vectorstores import FAISS
@@ -154,9 +154,9 @@ def build_qa_chain(file_bytes: bytes):
     file_hash = hashlib.md5(file_bytes).hexdigest()
     index_path = os.path.join(SCRIPT_DIR, f"faiss_index_{file_hash}")
 
-    embedder = HuggingFaceEndpointEmbeddings(
-        model="BAAI/bge-large-en-v1.5",
-        huggingfacehub_api_token=st.secrets["HF_TOKEN"],
+    embedder = HuggingFaceInferenceAPIEmbeddings(
+        api_key=st.secrets["HF_TOKEN"],
+        model_name="BAAI/bge-large-en-v1.5",
     )
 
     if os.path.exists(index_path):
