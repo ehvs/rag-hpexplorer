@@ -1,0 +1,42 @@
+/* ============================================================
+   base.css — shared structural styles across all pages
+   Each page must define these CSS variables in its own block:
+
+   --toggle-bg:      background color of the sidebar toggle button
+   --toggle-icon:    fill color of the toggle arrow icon
+   --glow-soft:      rgba color for the subtle glow state
+   --glow-strong:    rgba color for the bright glow state
+   ============================================================ */
+
+/* --- Sidebar toggle button --- */
+@keyframes glow-pulse {
+    0%   { box-shadow: 2px 0 6px var(--glow-soft); }
+    50%  { box-shadow: 2px 0 18px var(--glow-strong); }
+    100% { box-shadow: 2px 0 6px var(--glow-soft); }
+}
+
+[data-testid="collapsedControl"],
+[data-testid="stSidebarCollapsedControl"],
+section[data-testid="collapsedControl"] {
+    background-color: var(--toggle-bg) !important;
+    border-radius: 0 8px 8px 0 !important;
+    width: 1.6rem !important;
+    height: 4rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    animation: glow-pulse 2s ease-in-out infinite !important;
+}
+
+[data-testid="collapsedControl"] svg,
+[data-testid="stSidebarCollapsedControl"] svg {
+    fill: var(--toggle-icon) !important;
+    width: 1rem !important;
+    height: 1rem !important;
+}
+
+/* --- Table layout --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
