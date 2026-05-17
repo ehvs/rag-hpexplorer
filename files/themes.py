@@ -31,38 +31,32 @@ THEMES = {
         "answer_icon": "📜",
         "no_file_msg": "No tome found in the restricted section. Please upload a document to begin.",
     },
-    # Palette (strict): #faca16 #6cb4ee #f58553 #9a81b0 #669e63 #fc89ac #8e715b
+    # Palette (strict): #e97f58 #273553 #4dc6d1 #534487
     # Role mapping:
-    #   #8e715b  bg             (darkest — base background)
-    #   #669e63  sidebar_bg     (green sidebar)
-    #   #9a81b0  input_bg       (purple inputs)
-    #   #9a81b0  answer_bg      (purple answer box)
-    #   #faca16  text           (yellow on dark)
-    #   #faca16  answer_text
-    #   #6cb4ee  primary        (blue — headings, borders, badge)
-    #   #fc89ac  subtitle_color (pink)
-    #   #f58553  answer_border  (orange accent stripe)
-    #   #669e63  badge_bg       (green badge)
-    #   #6cb4ee  toggle_bg
-    #   #8e715b  toggle_icon
+    #   #273553  bg, toggle_icon          (dark navy — base)
+    #   #534487  sidebar_bg, input_bg,    (purple — panels)
+    #            answer_bg, badge_bg
+    #   #4dc6d1  text, answer_text,       (teal — readable on navy/purple)
+    #            subtitle_color, toggle_bg
+    #   #e97f58  primary, answer_border   (orange — accent)
     "generic": {
         "page_icon": "📚",
         "title": "📚 Document Explorer",
         "subtitle": "Upload a document and ask questions",
-        "primary": "#6cb4ee",
-        "bg": "#8e715b",
-        "text": "#faca16",
-        "subtitle_color": "#fc89ac",
-        "input_bg": "#9a81b0",
-        "sidebar_bg": "#669e63",
-        "answer_bg": "#9a81b0",
-        "answer_text": "#faca16",
-        "answer_border": "#f58553",
-        "badge_bg": "#669e63",
-        "toggle_bg": "#6cb4ee",
-        "toggle_icon": "#8e715b",
-        "glow_soft": "rgba(108, 180, 238, 0.3)",
-        "glow_strong": "rgba(108, 180, 238, 0.8)",
+        "primary": "#e97f58",
+        "bg": "#273553",
+        "text": "#4dc6d1",
+        "subtitle_color": "#4dc6d1",
+        "input_bg": "#534487",
+        "sidebar_bg": "#534487",
+        "answer_bg": "linear-gradient(135deg, #534487, #273553)",
+        "answer_text": "#4dc6d1",
+        "answer_border": "#e97f58",
+        "badge_bg": "#534487",
+        "toggle_bg": "#4dc6d1",
+        "toggle_icon": "#273553",
+        "glow_soft": "rgba(233, 127, 88, 0.3)",
+        "glow_strong": "rgba(233, 127, 88, 0.8)",
         "font_import": "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');",
         "heading_font": "'Inter', sans-serif",
         "body_font": "'Inter', sans-serif",
