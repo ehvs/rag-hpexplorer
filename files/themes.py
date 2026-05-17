@@ -45,7 +45,7 @@ THEMES = {
         "subtitle": "Upload a document and ask questions",
         "primary": "#e97f58",
         "bg": "#273553",
-        "text": "#273553",
+        "text": "#2d3142",
         "subtitle_color": "#273553",
         "input_bg": "#4f5d75",
         "sidebar_bg": "#4f5d75",
