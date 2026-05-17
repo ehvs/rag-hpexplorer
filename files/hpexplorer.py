@@ -31,7 +31,7 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 SHOW_UPLOADER = True
 SHOW_DEBUG = False
 
-st.set_page_config(page_title="Hogwarts Library", page_icon="⚡", layout="centered")
+st.set_page_config(page_title="Local Library", page_icon="⚡", layout="centered")
 
 with open(os.path.join(SCRIPT_DIR, "styles", "base.css")) as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
@@ -125,7 +125,7 @@ hr {
 """, unsafe_allow_html=True)
 
 st.title("⚡ Hogwarts Library")
-st.markdown('<p class="subtitle">Harry rules but JK sucks</p>', unsafe_allow_html=True)
+st.markdown('<p class="subtitle">Upload your own book and make questions</p>', unsafe_allow_html=True)
 st.markdown("---")
 
 with st.sidebar:
