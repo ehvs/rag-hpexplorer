@@ -15,6 +15,7 @@ from langchain_community.vectorstores import FAISS
 from langchain_core.prompts import PromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
+from themes import THEMES, build_css
 
 warnings.filterwarnings('ignore')
 
@@ -30,119 +31,30 @@ GROQ_MODEL = "llama-3.3-70b-versatile"
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 SHOW_UPLOADER = True
 SHOW_DEBUG = False
+ACTIVE_THEME = "harrypotter"  # toggle: "harrypotter" | "generic"
 
-st.set_page_config(page_title="Local Library", page_icon="⚡", layout="centered")
+t = THEMES[ACTIVE_THEME]
+
+st.set_page_config(page_title=t["title"], page_icon=t["page_icon"], layout="centered")
 
 with open(os.path.join(SCRIPT_DIR, "styles", "base.css")) as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-st.markdown("""
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:ital,wght@0,400;1,400&display=swap');
+st.markdown(f"<style>{build_css(t)}</style>", unsafe_allow_html=True)
 
-:root {
-    --toggle-bg:     #d4af37;
-    --toggle-icon:   #0d0d1a;
-    --glow-soft:     rgba(212, 175, 55, 0.3);
-    --glow-strong:   rgba(212, 175, 55, 0.8);
-}
-
-.stApp {
-    background-color: #0d0d1a;
-    color: #e8d5a3;
-}
-
-h1 {
-    font-family: 'Cinzel', serif !important;
-    color: #d4af37 !important;
-    text-align: center;
-    text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
-}
-
-h2, h3 {
-    font-family: 'Cinzel', serif !important;
-    color: #d4af37 !important;
-}
-
-.subtitle {
-    text-align: center;
-    color: #9e8866;
-    font-style: italic;
-    font-family: 'Crimson Text', serif;
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-}
-
-.stTextInput > div > div > input {
-    background-color: #1a1a2e !important;
-    color: #e8d5a3 !important;
-    border: 1px solid #d4af37 !important;
-    border-radius: 8px !important;
-}
-
-.parchment {
-    background: linear-gradient(135deg, #f5e6c8, #ede0b0);
-    color: #2c1810;
-    border-radius: 12px;
-    padding: 1.5rem 2rem;
-    border-left: 5px solid #8b1a1a;
-    font-family: 'Crimson Text', serif;
-    font-size: 1.15rem;
-    line-height: 1.7;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-    margin-top: 1rem;
-}
-
-[data-testid="stSidebar"] {
-    background-color: #0a0a16 !important;
-    border-right: 1px solid #d4af3744;
-}
-
-hr {
-    border-color: #d4af37;
-    opacity: 0.3;
-}
-
-.stFileUploader {
-    border: 1px dashed #d4af37 !important;
-    border-radius: 8px;
-    padding: 0.5rem;
-}
-
-.loaded-badge {
-    background-color: #1a2a1a;
-    border: 1px solid #d4af37;
-    border-radius: 8px;
-    padding: 0.5rem 1rem;
-    color: #d4af37;
-    font-family: 'Cinzel', serif;
-    font-size: 0.9rem;
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-</style>
-""", unsafe_allow_html=True)
-
-st.title("⚡ Local Library")
-st.markdown('<p class="subtitle">Upload your own book and make questions</p>', unsafe_allow_html=True)
+st.title(t["title"])
+st.markdown(f'<p class="subtitle">{t["subtitle"]}</p>', unsafe_allow_html=True)
 st.markdown("---")
 
 with st.sidebar:
-    st.markdown("### 📜 The Restricted Section")
-    st.markdown("""
-*Welcome, young wizard.*
-
-1. 📖 Upload a PDF tome to begin.
-2. 🦉 Cast your question to the Sorting Hat.
-3. ✨ Wisdom from the pages shall be revealed.
-    """)
+    st.markdown(t["sidebar_title"])
+    st.markdown(f"\n{t['sidebar_intro']}\n\n{t['sidebar_steps']}\n")
     st.markdown("---")
     st.markdown("📖 **Curious how this was built?**")
     st.page_link("pages/journey.py", label="Read about my journey", icon="✨")
     st.markdown("---")
-    st.markdown("*\"Hermione, when have any of our plans actually worked? We plan, we get there, everything goes wrong.\"*  😂")
-    st.markdown("— Ron Wesley")
+    st.markdown(t["sidebar_quote"])
+    st.markdown(t["sidebar_quote_author"])
 
 
 def format_docs(docs):
@@ -226,16 +138,16 @@ else:
     label = None
 
 if file_bytes is not None:
-    with st.spinner("Consulting the ancient scrolls..."):
+    with st.spinner(t["spinner_loading"]):
         qa_chain = build_qa_chain(file_bytes)
 
     st.markdown(f'<div class="loaded-badge">📖 {label}</div>', unsafe_allow_html=True)
 
-    user_input = st.text_input("🪄 Cast your question:")
+    user_input = st.text_input(t["question_label"])
 
     if user_input:
         logger.info(f"User question: {user_input}")
-        with st.spinner("The Sorting Hat is thinking..."):
+        with st.spinner(t["spinner_thinking"]):
             try:
                 response = qa_chain.invoke(user_input)
                 if SHOW_DEBUG:
@@ -243,14 +155,14 @@ if file_bytes is not None:
                         st.write(f"Response type: `{type(response)}`")
                         st.code(repr(response))
                 if response and response.strip():
-                    st.markdown(f'<div class="parchment">📜 {response}</div>', unsafe_allow_html=True)
+                    st.markdown(f'<div class="parchment">{t["answer_icon"]} {response}</div>', unsafe_allow_html=True)
                 else:
                     logger.warning("Empty response returned to user")
-                    st.warning("The Sorting Hat returned silence. Try rephrasing your question.")
+                    st.warning("No answer found. Try rephrasing your question.")
             except Exception as e:
                 logger.error(f"Chain error: {e}")
-                st.error(f"A dark spell interfered: {e}")
+                st.error(f"Error: {e}")
                 import traceback
                 st.code(traceback.format_exc())
 else:
-    st.info("No tome found in the restricted section. Please upload a document to begin.")
+    st.info(t["no_file_msg"])
