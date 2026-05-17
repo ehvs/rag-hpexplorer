@@ -134,7 +134,7 @@ td {
 
 with st.sidebar:
     st.markdown("### Navigation")
-    st.page_link("hpexplorer.py", label="Back to Harry Potter Explorer", icon="⚡")
+    st.page_link("hpexplorer.py", label="Home Page", icon="⚡")
 
 journey_path = os.path.join(os.path.dirname(__file__), "..", "my-rag-journey.md")
 
