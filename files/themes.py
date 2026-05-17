@@ -31,27 +31,28 @@ THEMES = {
         "answer_icon": "📜",
         "no_file_msg": "No tome found in the restricted section. Please upload a document to begin.",
     },
+    # Palette: #FACA16 #6CB4EE #F58553 #9A81B0 #669E63 #FC89AC #8E715B
     "generic": {
         "page_icon": "📚",
         "title": "📚 Document Explorer",
         "subtitle": "Upload a document and ask questions",
-        "primary": "#4a90d9",
-        "bg": "#f8f9fa",
-        "text": "#212529",
-        "subtitle_color": "#6c757d",
-        "input_bg": "#ffffff",
-        "sidebar_bg": "#e9ecef",
-        "answer_bg": "linear-gradient(135deg, #e8f4fd, #d6ecf8)",
-        "answer_text": "#212529",
-        "answer_border": "#4a90d9",
-        "badge_bg": "#ddeeff",
-        "toggle_bg": "#4a90d9",
-        "toggle_icon": "#ffffff",
-        "glow_soft": "rgba(74, 144, 217, 0.3)",
-        "glow_strong": "rgba(74, 144, 217, 0.8)",
-        "font_import": "",
-        "heading_font": "sans-serif",
-        "body_font": "sans-serif",
+        "primary": "#FACA16",        # yellow — headings, borders, badges
+        "bg": "#1c1c2e",             # dark navy base
+        "text": "#f0ecff",           # near-white with slight purple tint
+        "subtitle_color": "#9A81B0", # lavender
+        "input_bg": "#28283d",       # slightly lighter than bg
+        "sidebar_bg": "#14142a",     # slightly darker than bg
+        "answer_bg": "linear-gradient(135deg, #2a1f3d, #1e2847)",
+        "answer_text": "#f0ecff",
+        "answer_border": "#F58553",  # orange accent
+        "badge_bg": "#28283d",
+        "toggle_bg": "#6CB4EE",      # light blue toggle
+        "toggle_icon": "#1c1c2e",
+        "glow_soft": "rgba(250, 202, 22, 0.3)",
+        "glow_strong": "rgba(250, 202, 22, 0.8)",
+        "font_import": "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');",
+        "heading_font": "'Inter', sans-serif",
+        "body_font": "'Inter', sans-serif",
         "sidebar_title": "### 📋 How to use",
         "sidebar_intro": "*Welcome to Document Explorer.*",
         "sidebar_steps": "1. 📖 Upload a PDF document to begin.\n2. 💬 Type your question in the box.\n3. ✨ Get answers sourced from your document.",
