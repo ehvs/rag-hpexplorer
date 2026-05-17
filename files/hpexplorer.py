@@ -28,7 +28,7 @@ logger.propagate = False
 
 GROQ_MODEL = "llama-3.3-70b-versatile"
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-SHOW_UPLOADER = False
+SHOW_UPLOADER = True
 SHOW_DEBUG = False
 
 st.set_page_config(page_title="Hogwarts Library", page_icon="⚡", layout="centered")
@@ -133,8 +133,8 @@ with st.sidebar:
     st.markdown("""
 *Welcome, young wizard.*
 
-1. 🔮 The tome is already loaded — ask away.
-2. 🦉 Your question will be sent to the Sorting Hat.
+1. 📖 Upload a PDF tome to begin.
+2. 🦉 Cast your question to the Sorting Hat.
 3. ✨ Wisdom from the pages shall be revealed.
     """)
     st.markdown("---")
