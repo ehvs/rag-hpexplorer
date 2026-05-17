@@ -43,7 +43,7 @@ THEMES = {
         "page_icon": "📚",
         "title": "📚 Document Explorer",
         "subtitle": "Upload a document and ask questions",
-        "primary": "#2d3142",
+        "primary": "#ffffff",
         "bg": "#273553",
         "text": "#2d3142",
         "subtitle_color": "#273553",
