@@ -124,7 +124,7 @@ hr {
 </style>
 """, unsafe_allow_html=True)
 
-st.title("⚡ Hogwarts Library")
+st.title("⚡ Local Library")
 st.markdown('<p class="subtitle">Upload your own book and make questions</p>', unsafe_allow_html=True)
 st.markdown("---")
 
