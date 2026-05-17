@@ -1,4 +1,4 @@
-# I Built a RAG App and It Only Took Me Four Minutes Per Answer (at first)
+# I Built a RAG App and it "only" took 4 Minutes per answer (at first)
 
 *A completely honest account of what it's like to build your first Retrieval-Augmented Generation system, including the part where it told me Hermione was Harry's school.*
 
