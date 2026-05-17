@@ -48,7 +48,7 @@ THEMES = {
         "text": "#2d3142",
         "subtitle_color": "#273553",
         "input_bg": "#4f5d75",
-        "sidebar_bg": "#4f5d75",
+        "sidebar_bg": "#ef8354",
         "answer_bg": "linear-gradient(135deg, #4f5d75, #273553)",
         "answer_text": "#273553",
         "answer_border": "#e97f58",
