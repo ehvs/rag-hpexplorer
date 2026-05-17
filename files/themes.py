@@ -44,7 +44,7 @@ THEMES = {
         "title": "📚 Document Explorer",
         "subtitle": "Upload a document and ask questions",
         "primary": "#ffffff",
-        "bg": "#273553",
+        "bg": "#3a7ca5",
         "text": "#2d3142",
         "subtitle_color": "#273553",
         "input_bg": "#4f5d75",
