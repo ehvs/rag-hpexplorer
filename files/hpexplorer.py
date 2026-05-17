@@ -31,7 +31,7 @@ GROQ_MODEL = "llama-3.3-70b-versatile"
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 SHOW_UPLOADER = True
 SHOW_DEBUG = False
-ACTIVE_THEME = "harrypotter"  # toggle: "harrypotter" | "generic"
+ACTIVE_THEME = "generic"  # toggle: "harrypotter" | "generic"
 
 t = THEMES[ACTIVE_THEME]
 
